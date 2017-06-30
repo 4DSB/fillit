@@ -24,14 +24,14 @@ FILES = ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr \
 		ft_lstmap my_strsub ft_count_digits ft_next_word ft_word_copy \
 		ft_count_words ft_word_length ft_strrev ft_lstpush ft_strevery \
 		ft_lstevery ft_lstrev ft_lstlen
-SRCS = $(patsubst %, srcs/%.c, $(FILES))
+SRCS = $(patsubst %, %.c, $(FILES))
 BINS = $(patsubst %, %.o, $(FILES))
 FLAGS = -Wall -Wextra -Werror
 
 .PHONY: all clean fclean
 
 %.o : srcs/%.c
-	gcc -Iincludes $(FLAGS) -c $<
+	gcc -I. $(FLAGS) -c $<
 
 all: $(NAME)
 

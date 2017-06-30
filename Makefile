@@ -20,7 +20,7 @@ LIBFT = ./libft/libft.a
 .PHONY: all clean fclean
 
 %.o : srcs/%.c
-	gcc -Iincludes -Ilibft/includes $(FLAGS) -c $<
+	gcc -Iincludes -Ilibft/ $(FLAGS) -c $<
 
 all: libft $(NAME)
 
@@ -30,7 +30,7 @@ $(LIBFT):
 	make -C ./libft
 
 $(NAME): $(LIBFT) $(BINS)
-	gcc -Iincludes -Ilibft/includes $(LIBFT) $(BINS) main.c -o $(NAME)
+	gcc -Iincludes -Ilibft/ $(LIBFT) $(BINS) main.c -o $(NAME)
 
 clean:
 	make clean -C ./libft
