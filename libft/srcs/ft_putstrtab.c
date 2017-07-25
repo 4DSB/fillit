@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstrtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amittal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 20:09:50 by amittal           #+#    #+#             */
-/*   Updated: 2017/07/24 20:09:57 by amittal          ###   ########.fr       */
+/*   Created: 2017/07/24 15:30:32 by amittal           #+#    #+#             */
+/*   Updated: 2017/07/24 15:30:54 by amittal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int				main(int argc, char **argv)
+void	ft_putstrtab(char **tab, const char *sep)
 {
-	t_fillst	*start;
-	int			j;
+	int	i;
 
-	start = NULL;
-	if (argv[1] && argc == 2 && (j = check_file(argv[1]))
-		&& ft_make_lst(argv[1], &start, j))
-		solve(&start, j);
-	else
-		ft_putendl("error");
-		return (0);
+	i = 0;
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		ft_putstr(sep);
+		++i;
+	}
 }

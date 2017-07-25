@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amittal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 20:09:50 by amittal           #+#    #+#             */
-/*   Updated: 2017/07/24 20:09:57 by amittal          ###   ########.fr       */
+/*   Created: 2017/07/10 02:55:42 by amittal           #+#    #+#             */
+/*   Updated: 2017/07/10 02:56:00 by amittal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 32
 
-int				main(int argc, char **argv)
+# include "libft.h"
+# include <sys/types.h>
+# include <sys/uio.h>
+
+typedef struct s_save	t_save;
+
+struct					s_save
 {
-	t_fillst	*start;
-	int			j;
+	int					fd;
+	char				*str;
+};
 
-	start = NULL;
-	if (argv[1] && argc == 2 && (j = check_file(argv[1]))
-		&& ft_make_lst(argv[1], &start, j))
-		solve(&start, j);
-	else
-		ft_putendl("error");
-		return (0);
-}
+int						get_next_line(int const fd, char **line);
+
+#endif

@@ -6,21 +6,21 @@
 #    By: olkovale <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/20 19:35:21 by olkovale          #+#    #+#              #
-#    Updated: 2017/06/27 19:59:04 by olkovale         ###   ########.fr        #
+#    Updated: 2017/07/22 07:03:09 by olkovale         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
-FILES = tetread validate1 validate2
+FILES = validator ft_make_lst ft_solver ft_printmap
 SRCS = $(patsubst %, srcs/%.c, $(FILES))
 BINS = $(patsubst %, %.o, $(FILES))
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 
 .PHONY: all clean fclean
 
 %.o : srcs/%.c
-	gcc -Iincludes -Ilibft/ $(FLAGS) -c $<
+	gcc -Iincludes -Ilibft/includes $(FLAGS) -c $<
 
 all: libft $(NAME)
 
@@ -30,7 +30,7 @@ $(LIBFT):
 	make -C ./libft
 
 $(NAME): $(LIBFT) $(BINS)
-	gcc -Iincludes -Ilibft/ $(LIBFT) $(BINS) main.c -o $(NAME)
+	gcc -Iincludes -Ilibft/includes $(FLAGS) $(LIBFT) $(BINS) main.c -o $(NAME)
 
 clean:
 	make clean -C ./libft

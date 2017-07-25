@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amittal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 20:09:50 by amittal           #+#    #+#             */
-/*   Updated: 2017/07/24 20:09:57 by amittal          ###   ########.fr       */
+/*   Created: 2017/07/22 00:11:28 by amittal           #+#    #+#             */
+/*   Updated: 2017/07/22 00:11:41 by amittal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int				main(int argc, char **argv)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_fillst	*start;
-	int			j;
+	unsigned int	i;
 
-	start = NULL;
-	if (argv[1] && argc == 2 && (j = check_file(argv[1]))
-		&& ft_make_lst(argv[1], &start, j))
-		solve(&start, j);
-	else
-		ft_putendl("error");
-		return (0);
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (*s)
+		f(i++, s++);
 }
